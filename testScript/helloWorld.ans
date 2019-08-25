@@ -1,0 +1,18 @@
+// As the main philosophy of Output Oriented Programming, the
+// esseitial idea is to construct program based on data dependency.
+// This means in order to reach an output Node, it the program will
+// fetch its dependency, and then reach the output after dependency has been satisfied.
+import sysIO
+
+// Also there ought to be no "private instance" inside a node
+// This node requires no dependency
+Node Input() {
+  Exports out => sysIO.Print
+  {
+    this.output = []
+    for (int i = 0; i < 10; i++)
+      this.output.add(i)
+  }
+}
+
+Input()
